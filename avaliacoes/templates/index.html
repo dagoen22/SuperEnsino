@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+    <div class="col d-flex justify-content-center">
+        <div class="card text-center shadow bg-white rounded">
+            <div class="card-header">
+                <h5 class="card-title">Todas as avaliações</h5>
+            </div>
+            <div class="card-body">
+                <div class="list-group">
+                    {% for avaliacao in avaliacoes%}
+                    <a href="avaliacao/{{ avaliacao.id }}" class="list-group-item list-group-item-action">{{ avaliacao.titulo }}</a>             
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div class="col d-flex justify-content-center">
+        <div class="card text-center shadow bg-white rounded">
+            <div class="card-header">
+                <h5 class="card-title">Você Não Está Logado!</h5>
+            </div>
+            <div class="card-body">
+                <p class="card-text">Faça Login para continuar</p>
+                <p class="card-text">Ou registre no painel de administrador clicando <a href="/admin">Aqui</a></p>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    
+{% endblock %}

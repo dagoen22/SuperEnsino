@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="col d-flex justify-content-center mb-3">
+    <div class="card text-center shadow bg-white rounded">
+        <div class="card-header">
+            <h5 class="card-title">Escolha uma avaliacao</h5>
+        </div>
+        <div class="card-body">
+            <div class="list-group">
+            {% for exercicio in exercicios %}
+                <a href="/exercicio/{{exercicio.avaliacao_id}}/{{ exercicio.id }}" class="list-group-item list-group-item-action">{{ exercicio.descricao }}</a>             
+            {% endfor %}
+            </div>
+        </div>
+        <div class="card-footer">
+            <p>Você acertou {{aproveitamento.total_acertos}} de {{aproveitamento.total}}. seu aproveitamento é de {{aproveitamento.rendimento}}%</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

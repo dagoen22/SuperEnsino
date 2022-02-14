@@ -1,0 +1,27 @@
+{% extends '../base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+Login
+{% endblock %}
+
+
+{% block content %}
+<div class="col d-flex justify-content-center">
+    <div class="card">
+        <div class="card-header">
+            Login
+        </div>
+        <div class="card-body">
+            <form action="" method="post" class="form-group">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <button type="submit" class="btn btn-success">Login</button>
+            </form>
+        </div>
+        <div class="card-footer">
+            <p>Não tem uma conta? Crie uma no painel de admin <a href="/admin">aqui</a>.</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
